@@ -1,0 +1,3 @@
+insert into Employee (name, firstname, email, password, corps_id) values ('nkollo','patrick','pnkollo@mail.com','jhowirg4168534164',1);
+insert into Employee (name, firstname, email, password, corps_id) values ('nkollo','dauphine','dnkollo@mail.com','jhowirg4346834164',2);
+insert into Employee (name, firstname, email, password, corps_id) values ('koko nkollo','alexandra','ankollo@mail.com','jhofwuiz46564164',3);

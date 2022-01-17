@@ -1,0 +1,25 @@
+insert into corpswork ( name) values ('corps de police');
+insert into corpswork ( name) values ('corps medical');
+insert into corpswork ( name) values ('corps de l armee');
+insert into corpswork ( name) values ('corps de taxi-moto');
+insert into corpswork ( name) values ('corps de taxi');
+insert into corpswork ( name) values ('corps enseignant');
+insert into corpswork ( name) values ('corps des avocats');
+insert into corpswork ( name) values ('corps des magistrat');
+insert into corpswork ( name) values ('corps informaticien');
+insert into corpswork ( name) values ('corps mathematicien');
+insert into corpswork ( name) values ('corps de physicien');
+insert into corpswork ( name) values ('corps de camionneur');
+
+UPDATE Employee SET corps_id = 1 WHERE id = 1;
+UPDATE Employee SET corps_id = 2 WHERE id = 2;
+UPDATE Employee SET corps_id = 3 WHERE id = 3;
+UPDATE Employee SET corps_id = 1 WHERE id = 4;
+UPDATE Employee SET corps_id = 1 WHERE id = 5;
+UPDATE Employee SET corps_id = 2 WHERE id = 6;
+UPDATE Employee SET corps_id = 3 WHERE id = 7;
+UPDATE Employee SET corps_id = 1 WHERE id = 8;
+UPDATE Employee SET corps_id = 1 WHERE id = 9;
+UPDATE Employee SET corps_id = 3 WHERE id = 10;
+UPDATE Employee SET corps_id = 1 WHERE id = 11;
+UPDATE Employee SET corps_id = 1 WHERE id = 12;

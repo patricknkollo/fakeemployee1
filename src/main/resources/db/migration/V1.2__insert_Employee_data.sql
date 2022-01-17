@@ -1,0 +1,12 @@
+insert into Employee (name, firstname, email, password) values ('enangue','rosine','rosenang@mail.com','244fr13rt46e');
+insert into Employee (name, firstname, email, password) values ('ateba','eyene','ateba@mail.com','244f468rt654654e');
+insert into Employee (name, firstname, email, password) values ('messanga','charles','cmessa@mail.com','5425845242313');
+insert into Employee (name, firstname, email, password) values ('bona','richard','rbona@mail.com','4e6gh5hhzh65fh');
+insert into Employee (name, firstname, email, password) values ('etoo','samuel','setoo@mail.com','fojlg468743d');
+insert into Employee (name, firstname, email, password) values ('esso','laurent','lorenzo@mail.com','loss4646');
+insert into Employee (name, firstname, email, password) values ('keme','marc','mkeme@mail.com','7434f34wre5t');
+insert into Employee (name, firstname, email, password) values ('dikongue','henri','hdiko@mail.com','hfjpgpg4635');
+insert into Employee (name, firstname, email, password) values ('koko','alexandra','akoko@mail.com','jhowirg464634164');
+insert into Employee (name, firstname, email, password) values ('dohmen','philipp','pdohmen@mail.com','jhowirg4168534164');
+insert into Employee (name, firstname, email, password) values ('dohmen','ulrich','udohmen@mail.com','jhowirg4346834164');
+insert into Employee (name, firstname, email, password) values ('dohmen','alexandra','adohmen@mail.com','jhofwuiz46564164');
