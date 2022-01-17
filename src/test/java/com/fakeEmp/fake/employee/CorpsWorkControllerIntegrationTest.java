@@ -22,56 +22,6 @@ public class CorpsWorkControllerIntegrationTest {
 
   @Test
   @Order(1)
-  public void test_integration_saveCorpsByController() throws JSONException {
-    CorpsWork corpsWork = new CorpsWork(19L, "corps de sport de combat");
-    Employee employee1 = new Employee(1L, "francis", "ngannou", "fngannou@email.com", "hhefb446464", corpsWork);
-    Employee employee2 = new Employee(2L, "ciryl", "gane", "cgane@email.com", "pwjfor46464", corpsWork);
-    Employee employee3 = new Employee(3L, "israel", "adesanya", "iadesan@email.com", "hiowöo64346ed", corpsWork);
-    List<Employee>combattants = List.of(employee1,employee2,employee3);
-    corpsWork.getEmployees().addAll(combattants);
-
-    String expected = "{\n"
-        + "\t\"id\": 13,\n"
-        + "\t\"name\": \"corps de sport de combat\"\n"
-        + "}";
-    HttpHeaders headers= new HttpHeaders();
-    headers.setContentType(MediaType.APPLICATION_JSON);
-    HttpEntity<CorpsWork> corpsWorkHttpEntity = new HttpEntity<CorpsWork>(corpsWork, headers);
-    TestRestTemplate restTemplate = new TestRestTemplate();
-    ResponseEntity<String> responseEntity = restTemplate.postForEntity(URI.create("http://localhost:8080/api/corps/save"), corpsWorkHttpEntity, String.class);
-    JSONAssert.assertEquals(expected, responseEntity.getBody(), true);
-    Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-
-  }
-
-  @Test
-  @Order(2)
-  public void test_integration_DeleteClient() throws JSONException {
-    CorpsWork corpsWork = new CorpsWork(19L, "corps de sport de combat");
-    Employee employee1 = new Employee(1L, "francis", "ngannou", "fngannou@email.com", "hhefb446464", corpsWork);
-    Employee employee2 = new Employee(2L, "ciryl", "gane", "cgane@email.com", "pwjfor46464", corpsWork);
-    Employee employee3 = new Employee(3L, "israel", "adesanya", "iadesan@email.com", "hiowöo64346ed", corpsWork);
-    List<Employee> combattants = List.of(employee1, employee2, employee3);
-    corpsWork.getEmployees().addAll(combattants);
-
-    String expected = "{\n"
-        + "\t\"id\": 13,\n"
-        + "\t\"name\": \"corps de sport de combat\"\n"
-        + "}";
-    HttpHeaders headers = new HttpHeaders();
-    headers.setContentType(MediaType.APPLICATION_JSON);
-    HttpEntity<CorpsWork> corpsWorkHttpEntity = new HttpEntity<CorpsWork>(corpsWork, headers);
-
-    TestRestTemplate restTemplate = new TestRestTemplate();
-    ResponseEntity<String> responseEntity = restTemplate
-        .exchange(URI.create("http://localhost:8080/api/corps/delete"), HttpMethod.DELETE, corpsWorkHttpEntity,
-            String.class);
-    JSONAssert.assertEquals(expected, responseEntity.getBody(), true);
-    Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-  }
-
-  @Test
-  @Order(3)
   public void test_integration_getAllCorpsCorpsByController() throws JSONException {
 
     String expected = "[\n"
@@ -130,4 +80,57 @@ public class CorpsWorkControllerIntegrationTest {
     Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
 
   }
+  @Test
+  @Order(2)
+  public void test_integration_saveCorpsByController() throws JSONException {
+    CorpsWork corpsWork = new CorpsWork(19L, "corps de sport de combat");
+    Employee employee1 = new Employee(1L, "francis", "ngannou", "fngannou@email.com", "hhefb446464", corpsWork);
+    Employee employee2 = new Employee(2L, "ciryl", "gane", "cgane@email.com", "pwjfor46464", corpsWork);
+    Employee employee3 = new Employee(3L, "israel", "adesanya", "iadesan@email.com", "hiowöo64346ed", corpsWork);
+    List<Employee>combattants = List.of(employee1,employee2,employee3);
+    corpsWork.getEmployees().addAll(combattants);
+
+    String expected = "{\n"
+        + "\t\"id\": 13,\n"
+        + "\t\"name\": \"corps de sport de combat\"\n"
+        + "}";
+    HttpHeaders headers= new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    HttpEntity<CorpsWork> corpsWorkHttpEntity = new HttpEntity<CorpsWork>(corpsWork, headers);
+    TestRestTemplate restTemplate = new TestRestTemplate();
+    ResponseEntity<String> responseEntity = restTemplate.postForEntity(URI.create("http://localhost:8080/api/corps/save"), corpsWorkHttpEntity, String.class);
+    JSONAssert.assertEquals(expected, responseEntity.getBody(), true);
+    Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+
+  }
+
+  @Test
+  @Order(3)
+  public void test_integration_DeleteCorpsWork() throws JSONException {
+    CorpsWork corpsWork = new CorpsWork(13L, "corps de sport de combat");
+    Employee employee1 = new Employee(1L, "francis", "ngannou", "fngannou@email.com", "hhefb446464", corpsWork);
+    Employee employee2 = new Employee(2L, "ciryl", "gane", "cgane@email.com", "pwjfor46464", corpsWork);
+    Employee employee3 = new Employee(3L, "israel", "adesanya", "iadesan@email.com", "hiowöo64346ed", corpsWork);
+    List<Employee> combattants = List.of(employee1, employee2, employee3);
+    corpsWork.getEmployees().addAll(combattants);
+
+    String expected = "[\n"
+        + "\t{\n"
+        + "\t\t\"id\": 13,\n"
+        + "\t\t\"name\": \"corps de sport de combat\"\n"
+        + "\t}\n"
+        + "]";
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    HttpEntity<CorpsWork> corpsWorkHttpEntity = new HttpEntity<CorpsWork>(corpsWork, headers);
+
+    TestRestTemplate restTemplate = new TestRestTemplate();
+    ResponseEntity<String> responseEntity = restTemplate
+        .exchange(URI.create("http://localhost:8080/api/corps/delete?name=corps%20de%20sport%20de%20combat"), HttpMethod.DELETE, corpsWorkHttpEntity,
+            String.class);
+    JSONAssert.assertEquals(expected, responseEntity.getBody(), false);
+    Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+  }
+
+
 }
